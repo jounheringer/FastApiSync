@@ -1,5 +1,5 @@
-from datetime import datetime
-from sqlalchemy import Column, Integer, Boolean, DateTime, String
+from sqlalchemy import Boolean, String
+from sqlalchemy.orm import Mapped, mapped_column
 
 from database.database import Base
 
@@ -7,8 +7,8 @@ from database.database import Base
 class BasicData(Base):
     __tablename__ = "basic_data"
 
-    id = Column(Integer, primary_key=True, index=True)
-    firstname = Column(String, index=False)
-    lastname = Column(String, unique=False, index=False)
-    createdAt = Column(DateTime, default=datetime.now(datetime.now().astimezone().tzinfo))
-    synced = Column(Boolean, unique=False, index=False)
+    id: Mapped[int] = mapped_column(primary_key=True, index=True)
+    uid: Mapped[int] = mapped_column(index=False)
+    firstName: Mapped[str] = mapped_column(String, nullable=False)
+    lastName: Mapped[str] = mapped_column(String, nullable=False)
+    synced: Mapped[bool] = mapped_column(Boolean, default=False)

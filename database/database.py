@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-DATABASE_URL = "postgresql://username:password@localhost/dbname"
+DATABASE_URL = "postgresql://postgres:postgres@localhost/sync_db"
 
 engine = create_engine(DATABASE_URL)
 

@@ -1,13 +1,13 @@
-from datetime import datetime
+from typing import Optional, List
 
 from pydantic import BaseModel
 
 
 class BasicDataDto(BaseModel):
-    id: int
+    uid: Optional[int]
+    id: Optional[int]
     firstName: str
     lastName: str
-    createdAt: datetime
     synced: bool
 
     class Config:
